@@ -62,7 +62,7 @@
                                     <action selector="muted:" destination="BYZ-38-t0r" eventType="touchUpInside" id="P76-ES-SlQ"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Owv-hA-MAv">
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Owv-hA-MAv">
                                 <rect key="frame" x="52" y="356" width="255" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
@@ -77,7 +77,7 @@
                                     <action selector="rete:" destination="BYZ-38-t0r" eventType="touchUpInside" id="00x-4C-cNf"/>
                                 </connections>
                             </button>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3X1-ca-aSy">
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3X1-ca-aSy">
                                 <rect key="frame" x="101" y="607" width="150" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </progressView>
@@ -88,7 +88,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="d0j-VS-TsE">
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="d0j-VS-TsE">
                                 <rect key="frame" x="45" y="522" width="262" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
@@ -107,8 +107,11 @@
                     </view>
                     <connections>
                         <outlet property="loadProgress" destination="3X1-ca-aSy" id="eKk-dn-d31"/>
+                        <outlet property="muteBtn" destination="fFA-vf-pIm" id="kh7-gM-wOV"/>
+                        <outlet property="playSlider" destination="Owv-hA-MAv" id="Av2-Ql-tes"/>
                         <outlet property="playTimeLabel" destination="dyv-fI-D32" id="Oos-Dv-jcf"/>
                         <outlet property="totalTimeLabel" destination="GgA-Kg-vwt" id="vwJ-Ny-c7Y"/>
+                        <outlet property="volumeSlider" destination="d0j-VS-TsE" id="qO4-4n-8B4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

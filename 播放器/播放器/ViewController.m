@@ -13,14 +13,26 @@
 @property (weak, nonatomic) IBOutlet UILabel *playTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalTimeLabel;
 @property (weak, nonatomic) IBOutlet UIProgressView *loadProgress;
-
+@property (weak, nonatomic) IBOutlet UISlider *playSlider;
+@property (weak, nonatomic) IBOutlet UIButton *muteBtn;
+@property (weak, nonatomic) IBOutlet UISlider *volumeSlider;
+@property (nonatomic, weak) NSTimer *timer;
 @end
 
 @implementation ViewController
 
+- (NSTimer *)timer {
+    if (!_timer) {
+        NSTimer *timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(update) userInfo:nil repeats:YES];
+        [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    }
+    return _timer;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    [self timer];
 }
 
 - (IBAction)play:(id)sender {
@@ -56,6 +68,13 @@
     [[XMGRemotePlayer sharedInstance] setVolume:sender.value];
 }
 
-
+- (void)update {
+    self.playTimeLabel.text = [[XMGRemotePlayer sharedInstance] currentTimeFormat];
+    self.totalTimeLabel.text = [[XMGRemotePlayer sharedInstance] totalTimeFormat];
+    self.playSlider.value = [[XMGRemotePlayer sharedInstance] progress];
+    self.volumeSlider.value = [[XMGRemotePlayer sharedInstance] volume];
+    self.loadProgress.progress = [[XMGRemotePlayer sharedInstance] loadDataProgress];
+    self.muteBtn.selected = [[XMGRemotePlayer sharedInstance] muted];
+}
 
 @end

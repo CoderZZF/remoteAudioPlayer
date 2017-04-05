@@ -35,6 +35,8 @@ static XMGRemotePlayer *_sharedInstance;
 }
 
 - (void)playWithURL:(NSURL *)url {
+    _url = url;
+    
     // 创建一个播放器对象
     // 这个方法已经帮我们封装了三个步骤
     // 1. 资源的请求
@@ -89,13 +91,13 @@ static XMGRemotePlayer *_sharedInstance;
     }];
 }
 
+
 - (void)seekWithTimeDiffer:(NSTimeInterval)timeDiffer {
     // 1. 获取当前音频资源的总时长
-    CMTime totalTime = self.player.currentItem.duration;
-    NSTimeInterval totalTimeSec = CMTimeGetSeconds(totalTime);
+    NSTimeInterval totalTimeSec = [self totalTime];
+    
     // 2. 获取当前音频资源已经播放的时长
-    CMTime playTime = self.player.currentItem.currentTime;
-    NSTimeInterval playTimeSec = CMTimeGetSeconds(playTime);
+    NSTimeInterval playTimeSec = [self currentTime];
     playTimeSec += timeDiffer;
     
     [self seekWithProgress:playTimeSec / totalTimeSec];
@@ -105,8 +107,16 @@ static XMGRemotePlayer *_sharedInstance;
     [self.player setRate:rate];
 }
 
+- (float)rate {
+    return self.player.rate;
+}
+
 - (void)setMuted:(BOOL)muted {
     self.player.muted = muted;
+}
+
+- (BOOL)muted {
+    return self.player.muted;
 }
 
 - (void)setVolume:(float)volume {
@@ -120,7 +130,61 @@ static XMGRemotePlayer *_sharedInstance;
     self.player.volume = volume;
 }
 
+- (float)volume {
+    return self.player.volume;
+}
 
+#pragma mark - 数据/事件
+- (NSTimeInterval)totalTime {
+    CMTime totalTime = self.player.currentItem.duration;
+    NSTimeInterval totalTimeSec = CMTimeGetSeconds(totalTime);
+    if (isnan(totalTimeSec)) {
+        return 0;
+    }
+    return totalTimeSec;
+}
+
+
+- (NSString *)totalTimeFormat {
+    return [NSString stringWithFormat:@"%02zd:%02zd", (int)self.totalTime / 60, (int)self.totalTime % 60];
+}
+
+- (NSTimeInterval)currentTime {
+    CMTime playTime = self.player.currentItem.currentTime;
+    NSTimeInterval playTimeSec = CMTimeGetSeconds(playTime);
+    if (isnan(playTimeSec)) {
+        return 0;
+    }
+    return playTimeSec;
+}
+
+
+- (NSString *)currentTimeFormat {
+    return [NSString stringWithFormat:@"%02zd:%02zd", (int)self.currentTime / 60, (int)self.currentTime % 60];
+}
+
+- (float)progress {
+    if (self.totalTime == 0) {
+        return 0;
+    }
+    return self.currentTime / self.totalTime;
+}
+
+
+- (float)loadDataProgress {
+    if (self.totalTime == 0) {
+        return 0;
+    }
+    
+    CMTimeRange timeRange = [[self.player.currentItem loadedTimeRanges].lastObject CMTimeRangeValue];
+    CMTime loadTime = CMTimeAdd(timeRange.start, timeRange.duration);
+    NSTimeInterval loadTimeSec = CMTimeGetSeconds(loadTime);
+    
+    return loadTimeSec / self.totalTime;
+}
+
+
+#pragma mark - KVO
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
     if ([keyPath isEqualToString:@"status"]) {
         AVPlayerItemStatus status = [change[NSKeyValueChangeNewKey] integerValue];
