@@ -31,7 +31,7 @@ typedef NS_ENUM(NSInteger, XMGRemotePlayerState) {
 
 + (instancetype)sharedInstance;
 
-- (void)playWithURL:(NSURL *)url;
+- (void)playWithURL:(NSURL *)url isCache:(BOOL)isCache;
 
 - (void)pause;
 - (void)resume;

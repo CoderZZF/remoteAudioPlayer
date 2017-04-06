@@ -37,7 +37,7 @@
 
 - (IBAction)play:(id)sender {
     NSURL *url = [NSURL URLWithString:@"http://audio.xmcdn.com/group23/M04/63/C5/wKgJNFg2qdLCziiYAGQxcTOSBEw402.m4a"];
-    [[XMGRemotePlayer sharedInstance] playWithURL:url];
+    [[XMGRemotePlayer sharedInstance] playWithURL:url isCache:YES];
 }
 - (IBAction)pause:(id)sender {
     [[XMGRemotePlayer sharedInstance] pause];
@@ -69,7 +69,7 @@
 }
 
 - (void)update {
-    NSLog(@"%zd", [XMGRemotePlayer sharedInstance].state);
+//    NSLog(@"%zd", [XMGRemotePlayer sharedInstance].state);
     
     self.playTimeLabel.text = [[XMGRemotePlayer sharedInstance] currentTimeFormat];
     self.totalTimeLabel.text = [[XMGRemotePlayer sharedInstance] totalTimeFormat];

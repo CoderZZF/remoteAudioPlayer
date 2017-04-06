@@ -14,6 +14,8 @@
 		2B8810EB1E9535DC008DC210 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B8810EA1E9535DC008DC210 /* Assets.xcassets */; };
 		2B8810EE1E9535DC008DC210 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B8810EC1E9535DC008DC210 /* LaunchScreen.storyboard */; };
 		2B8810F81E9536EE008DC210 /* XMGRemotePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8810F71E9536EE008DC210 /* XMGRemotePlayer.m */; };
+		2B8810FB1E964E59008DC210 /* XMGRemoteResourceLoaderDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8810FA1E964E59008DC210 /* XMGRemoteResourceLoaderDelegate.m */; };
+		2B8810FE1E965020008DC210 /* NSURL+ZZF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8810FD1E965020008DC210 /* NSURL+ZZF.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,10 @@
 		2B8810EF1E9535DC008DC210 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B8810F61E9536EE008DC210 /* XMGRemotePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGRemotePlayer.h; sourceTree = "<group>"; };
 		2B8810F71E9536EE008DC210 /* XMGRemotePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGRemotePlayer.m; sourceTree = "<group>"; };
+		2B8810F91E964E59008DC210 /* XMGRemoteResourceLoaderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGRemoteResourceLoaderDelegate.h; sourceTree = "<group>"; };
+		2B8810FA1E964E59008DC210 /* XMGRemoteResourceLoaderDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGRemoteResourceLoaderDelegate.m; sourceTree = "<group>"; };
+		2B8810FC1E965020008DC210 /* NSURL+ZZF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+ZZF.h"; sourceTree = "<group>"; };
+		2B8810FD1E965020008DC210 /* NSURL+ZZF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+ZZF.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +94,10 @@
 			children = (
 				2B8810F61E9536EE008DC210 /* XMGRemotePlayer.h */,
 				2B8810F71E9536EE008DC210 /* XMGRemotePlayer.m */,
+				2B8810F91E964E59008DC210 /* XMGRemoteResourceLoaderDelegate.h */,
+				2B8810FA1E964E59008DC210 /* XMGRemoteResourceLoaderDelegate.m */,
+				2B8810FC1E965020008DC210 /* NSURL+ZZF.h */,
+				2B8810FD1E965020008DC210 /* NSURL+ZZF.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -165,7 +175,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B8810E61E9535DC008DC210 /* ViewController.m in Sources */,
+				2B8810FB1E964E59008DC210 /* XMGRemoteResourceLoaderDelegate.m in Sources */,
 				2B8810F81E9536EE008DC210 /* XMGRemotePlayer.m in Sources */,
+				2B8810FE1E965020008DC210 /* NSURL+ZZF.m in Sources */,
 				2B8810E31E9535DC008DC210 /* AppDelegate.m in Sources */,
 				2B8810E01E9535DC008DC210 /* main.m in Sources */,
 			);
@@ -326,6 +338,7 @@
 				2B8810F41E9535DC008DC210 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

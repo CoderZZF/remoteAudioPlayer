@@ -8,12 +8,15 @@
 
 #import "XMGRemotePlayer.h"
 #import <AVFoundation/AVFoundation.h>
+#import "XMGRemoteResourceLoaderDelegate.h"
+#import "NSURL+ZZF.h"
 
 @interface XMGRemotePlayer ()
 {
     BOOL _isUserPause;
 }
 @property (nonatomic, strong) AVPlayer *player;
+@property (nonatomic, strong) XMGRemoteResourceLoaderDelegate *resourceLoaderDelegate;
 @end
 
 @implementation XMGRemotePlayer
@@ -37,7 +40,7 @@ static XMGRemotePlayer *_sharedInstance;
     return _sharedInstance;
 }
 
-- (void)playWithURL:(NSURL *)url {
+- (void)playWithURL:(NSURL *)url isCache:(BOOL)isCache {
     NSURL *currentURL = [(AVURLAsset *)self.player.currentItem.asset URL];
     if ([url isEqual: currentURL]) {
         NSLog(@"当前播放任务已经存在了");
@@ -47,10 +50,18 @@ static XMGRemotePlayer *_sharedInstance;
     
     _url = url;
     
+    if (isCache) {
+        url = [url streamingURL];
+    }
+    
     // 创建一个播放器对象
     // 这个方法已经帮我们封装了三个步骤
     // 1. 资源的请求
     AVURLAsset *asset = [AVURLAsset assetWithURL:url];
+    // 关于网络音频的请求,是通过这个对象,调用代理的相关方法进行加载的.
+    // 拦截加载的请求,只需重新加载它的代理方法即可.
+    self.resourceLoaderDelegate = [XMGRemoteResourceLoaderDelegate new];
+    [asset.resourceLoader setDelegate:self.resourceLoaderDelegate queue:dispatch_get_main_queue()];
     
     // 移除监听者
     if (self.player.currentItem) {
