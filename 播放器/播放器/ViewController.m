@@ -69,6 +69,8 @@
 }
 
 - (void)update {
+    NSLog(@"%zd", [XMGRemotePlayer sharedInstance].state);
+    
     self.playTimeLabel.text = [[XMGRemotePlayer sharedInstance] currentTimeFormat];
     self.totalTimeLabel.text = [[XMGRemotePlayer sharedInstance] totalTimeFormat];
     self.playSlider.value = [[XMGRemotePlayer sharedInstance] progress];
