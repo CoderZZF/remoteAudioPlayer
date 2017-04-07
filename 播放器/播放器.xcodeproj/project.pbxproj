@@ -16,6 +16,8 @@
 		2B8810F81E9536EE008DC210 /* XMGRemotePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8810F71E9536EE008DC210 /* XMGRemotePlayer.m */; };
 		2B8810FB1E964E59008DC210 /* XMGRemoteResourceLoaderDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8810FA1E964E59008DC210 /* XMGRemoteResourceLoaderDelegate.m */; };
 		2B8810FE1E965020008DC210 /* NSURL+ZZF.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8810FD1E965020008DC210 /* NSURL+ZZF.m */; };
+		2B8811011E967203008DC210 /* XMGRemoteAudioFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8811001E967203008DC210 /* XMGRemoteAudioFile.m */; };
+		2B8811041E9682AB008DC210 /* XMGAudioDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8811031E9682AB008DC210 /* XMGAudioDownloader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,10 @@
 		2B8810FA1E964E59008DC210 /* XMGRemoteResourceLoaderDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGRemoteResourceLoaderDelegate.m; sourceTree = "<group>"; };
 		2B8810FC1E965020008DC210 /* NSURL+ZZF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+ZZF.h"; sourceTree = "<group>"; };
 		2B8810FD1E965020008DC210 /* NSURL+ZZF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+ZZF.m"; sourceTree = "<group>"; };
+		2B8810FF1E967203008DC210 /* XMGRemoteAudioFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGRemoteAudioFile.h; sourceTree = "<group>"; };
+		2B8811001E967203008DC210 /* XMGRemoteAudioFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGRemoteAudioFile.m; sourceTree = "<group>"; };
+		2B8811021E9682AB008DC210 /* XMGAudioDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMGAudioDownloader.h; sourceTree = "<group>"; };
+		2B8811031E9682AB008DC210 /* XMGAudioDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMGAudioDownloader.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +102,10 @@
 				2B8810F71E9536EE008DC210 /* XMGRemotePlayer.m */,
 				2B8810F91E964E59008DC210 /* XMGRemoteResourceLoaderDelegate.h */,
 				2B8810FA1E964E59008DC210 /* XMGRemoteResourceLoaderDelegate.m */,
+				2B8811021E9682AB008DC210 /* XMGAudioDownloader.h */,
+				2B8811031E9682AB008DC210 /* XMGAudioDownloader.m */,
+				2B8810FF1E967203008DC210 /* XMGRemoteAudioFile.h */,
+				2B8811001E967203008DC210 /* XMGRemoteAudioFile.m */,
 				2B8810FC1E965020008DC210 /* NSURL+ZZF.h */,
 				2B8810FD1E965020008DC210 /* NSURL+ZZF.m */,
 			);
@@ -178,7 +188,9 @@
 				2B8810FB1E964E59008DC210 /* XMGRemoteResourceLoaderDelegate.m in Sources */,
 				2B8810F81E9536EE008DC210 /* XMGRemotePlayer.m in Sources */,
 				2B8810FE1E965020008DC210 /* NSURL+ZZF.m in Sources */,
+				2B8811041E9682AB008DC210 /* XMGAudioDownloader.m in Sources */,
 				2B8810E31E9535DC008DC210 /* AppDelegate.m in Sources */,
+				2B8811011E967203008DC210 /* XMGRemoteAudioFile.m in Sources */,
 				2B8810E01E9535DC008DC210 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
